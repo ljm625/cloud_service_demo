@@ -1,0 +1,53 @@
+<page-header></page-header>
+<nz-card>
+  <result type="success" [title]="'提交成功'" description="服务开通请求提交成功，请耐心等待业务的部署以及开通过程。"
+    [extra]="resultExtra">
+    <ng-template #resultExtra>
+      <div nz-row [nzGutter]="16" class="mb-md">
+        <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="12" [nzXl]="6">
+          <span class="text-grey-darker">服务 ID：</span>
+          23421
+        </div>
+        <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="12" [nzXl]="6">
+          <span class="text-grey-darker">服务云 ：</span>
+          阿里云
+        </div>
+        <div nz-col [nzXs]="24" [nzSm]="24" [nzMd]="24" [nzLg]="24" [nzXl]="12">
+          <span class="text-grey-darker">生效时间：</span>
+          2016-12-12 ~ 2017-12-12
+        </div>
+      </div>
+      <nz-steps [nzCurrent]="1" nzProgressDot>
+        <nz-step [nzTitle]="'服务提交'" [nzDescription]="createDesc">
+          <ng-template #createDesc>
+            <div style="font-size: 14px; position: relative; left: 38px;">
+              <div style="margin-top: 8px; margin-bottom: 4px;">
+                Admin
+                <i class="anticon anticon-dingding-o ml-sm"></i>
+              </div>
+              <div style="margin-top: 8px; margin-bottom: 4px;">2016-12-12 12:32</div>
+            </div>
+          </ng-template>
+        </nz-step>
+        <nz-step [nzTitle]="'云端部署'" [nzDescription]="checkedDesc">
+          <ng-template #checkedDesc>
+            <div style="font-size: 14px; position: relative; left: 38px;">
+              <div style="margin-top: 8px; margin-bottom: 4px;">
+                阿里云
+                <i class="anticon anticon-dingding-o ml-sm" style="color: #00a0e9;"></i>
+              </div>
+              <!--<div style="margin-top: 8px; margin-bottom: 4px;">-->
+                <!--<a (click)="msg.success('click')">催一下</a>-->
+              <!--</div>-->
+            </div>
+          </ng-template>
+        </nz-step>
+        <nz-step [nzTitle]="'网络互通'"></nz-step>
+        <nz-step [nzTitle]="'完成'"></nz-step>
+      </nz-steps>
+    </ng-template>
+    <button nz-button [nzType]="'primary'">返回服务列表</button>
+    <button nz-button>查看服务</button>
+    <!--<button nz-button>打 印</button>-->
+  </result>
+</nz-card>

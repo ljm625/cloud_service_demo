@@ -1,0 +1,91 @@
+
+
+<div style="text-align: center" *ngIf="!submitted">
+<h1 class="h2 pt-md">订单确认</h1>
+<p class="pt-md text-grey">订购信息确认</p>
+
+</div>
+<div class="extra mt-md" *ngIf="!submitted">
+  <div nz-row class="mb-md" [@hide]="hideList[0]" [hidden]="hideElementList[0]"  (@hide.done)="animateDone($event,0)">
+    <div nz-col [nzSm]="8" class="text-right">服务类型：</div>
+    <div nz-col [nzSm]="16"><b>云网融合 Cloudbone</b></div>
+  </div>
+  <div nz-row class="mb-md" [@hide]="hideList[1]" [hidden]="hideElementList[1]"  (@hide.done)="animateDone($event,1)">
+    <div nz-col [nzSm]="8" class="text-right">云端选择：</div>
+    <div nz-col [nzSm]="16"><b>阿里云</b></div>
+  </div>
+  <div nz-row class="mb-md" [@hide]="hideList[2]" [hidden]="hideElementList[2]"  (@hide.done)="animateDone($event,2)">
+    <div nz-col [nzSm]="8" class="text-right">站点信息：</div>
+    <div nz-col [nzSm]="16"></div>
+  </div>
+
+  <!--<div nz-row class="mb-md">-->
+    <!--<div nz-col [nzSm]="8" class="text-right"> </div>-->
+    <!--<div nz-col [nzSm]="16">-->
+      <!--<nz-tag nzMode="checkable" [nzChecked]="true" ">Tag1</nz-tag>-->
+      <!--<nz-tag nzMode="checkable" [nzChecked]="true" ">Tag2</nz-tag>-->
+      <!--<nz-tag nzMode="checkable" [nzChecked]="true" ">Tag3</nz-tag>-->
+      <!--<nz-tag nzMode="checkable" [nzChecked]="true" ">Tag3</nz-tag>-->
+
+    <!--</div>-->
+
+
+  <!--</div>-->
+
+  <div nz-row [nzGutter]="16" *ngFor="let data of datas; let i = index" [@hide]="hideList[i+3]" (@hide.done)="animateDone($event,i+3)" [hidden]="hideElementList[i+3]">
+    <div nz-col [nzXs]="6" [nzMd]="6" class="mb-md">
+    </div>
+    <div nz-col [nzXs]="12" [nzMd]="12" class="mb-md">
+      <div nz-row [nzType]="'flex'" [nzJustify]="'center'" [nzAlign]="'middle'" class="bg-white py-md rounded-md">
+        <div nz-col [nzSpan]="3" class="text-center" style="padding-right:5px">
+        <span class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon bg-primary">
+          <i class="anticon anticon-database"></i>
+        </span>
+        </div>
+        <div nz-col [nzSpan]="6">
+          <strong class="display-3">{{data.name}}</strong>
+          <div class="text-grey">{{data.cityName}}</div>
+        </div>
+        <div nz-col [nzSpan]="5">
+          <nz-badge [nzStatus]="'processing'"></nz-badge>
+          <p style="display:inline;white-space: nowrap;overflow: hidden;text-overflow: clip;width:1px;max-width: 10px;">   {{ (data.address.length>6)? (data.address | slice:0:6)+'..':(data.address) }}
+          </p>
+          <!--<span class="display-3 text-grey-dark">3</span>-->
+        </div>
+        <div nz-col [nzSpan]="5">
+          <nz-badge [nzStatus]="'processing'"></nz-badge>
+          {{data.bandwidth}}Mbps
+          <!--<span class="display-3 text-grey-dark">5</span>-->
+        </div>
+        <div nz-col [nzSpan]="5">
+          <nz-badge [nzStatus]="'processing'"></nz-badge>
+          {{data.slaName}}
+          <!--<span class="display-3 text-grey-dark">2</span>-->
+        </div>
+      </div>
+    </div>
+    <div nz-col [nzXs]="6" [nzMd]="6" class="mb-md">
+    </div>
+  </div>
+
+  <!--<div nz-row class="mb-md">-->
+    <!--<div nz-col [nzSm]="8" class="text-right">收款人姓名：</div>-->
+    <!--<div nz-col [nzSm]="16">3</div>-->
+  <!--</div>-->
+  <!--<div nz-row>-->
+    <!--<div nz-col [nzSm]="8" class="text-right">转账金额：</div>-->
+    <!--<div nz-col [nzSm]="16">-->
+      <!--<strong class="text-lg pr-sm">4</strong>元</div>-->
+  <!--</div>-->
+</div>
+<div nz-row class="my-md py-md" *ngIf="!submitted">
+
+
+  <div nz-col [nzSpan]="19" [nzOffset]="16">
+    <button nz-button (click)="prev()">上一步</button>
+    <button nz-button class="ml-sm" [nzType]="'primary'" (click)="submit()" [nzLoading]="loading">提交服务</button>
+  </div>
+</div>
+
+
+<pro-result-success *ngIf="submitted"></pro-result-success>
