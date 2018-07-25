@@ -1,3 +1,99 @@
 <div class="content__title">
-  <h1>Page Name</h1>
+  <h1>服务详情页</h1>
 </div>
+
+<div nz-row [nzGutter]="8">
+  <div nz-col [nzSpan]="12" *ngFor="let service of services; let i = index">
+    <nz-card style="width: 100%;" [nzTitle]="service.service_name" [nzExtra]="extraTemplate">
+      <nz-card-tab>
+        <nz-tabset nzSize="medium" [(nzSelectedIndex)]="indexs[i]">
+          <nz-tab *ngFor="let site of service.sites" [nzTitle]=site.name></nz-tab>
+        </nz-tabset>
+      </nz-card-tab>
+
+      <div nz-row [nzGutter]="8">
+        <div nz-col [nzSpan]="2">
+        </div>
+        <div nz-col [nzSpan]="10">
+          站点名：
+        </div>
+        <div nz-col [nzSpan]="2">
+        </div>
+
+        <div nz-col [nzSpan]="10">
+          {{services[i].sites[indexs[i]].name}}
+        </div>
+
+
+        <div nz-col [nzSpan]="2">
+        </div>
+        <div nz-col [nzSpan]="10">
+          城市：
+        </div>
+        <div nz-col [nzSpan]="2">
+        </div>
+
+        <div nz-col [nzSpan]="10">
+          {{services[i].sites[indexs[i]].cityName}}
+        </div>
+
+        <div nz-col [nzSpan]="2">
+        </div>
+        <div nz-col [nzSpan]="10">
+          地址：
+        </div>
+        <div nz-col [nzSpan]="2">
+        </div>
+
+        <div nz-col [nzSpan]="10">
+          {{services[i].sites[indexs[i]].address}}
+        </div>
+
+
+        <div nz-col [nzSpan]="2">
+        </div>
+        <div nz-col [nzSpan]="10">
+          带宽速率：
+        </div>
+        <div nz-col [nzSpan]="2">
+        </div>
+
+        <div nz-col [nzSpan]="10">
+          {{services[i].sites[indexs[i]].bandwidth}} Mbps
+        </div>
+
+        <div nz-col [nzSpan]="2">
+        </div>
+        <div nz-col [nzSpan]="10">
+          SLA等级：
+        </div>
+        <div nz-col [nzSpan]="2">
+        </div>
+
+        <div nz-col [nzSpan]="10">
+          {{services[i].sites[indexs[i]].slaName}}
+        </div>
+
+      </div>
+
+    </nz-card>
+    <ng-template #extraTemplate>
+      &nbsp;<a>详情</a>
+    </ng-template>
+  </div>
+  <!--<div nz-col [nzSpan]="12">-->
+
+    <!--<nz-card style="width: 100%;" nzTitle="服务2" [nzExtra]="extraTemplate">-->
+      <!--<nz-card-tab>-->
+        <!--<nz-tabset nzSize="medium" [(nzSelectedIndex)]="index2">-->
+          <!--<nz-tab nzTitle="站点1"></nz-tab>-->
+          <!--<nz-tab nzTitle="站点2"></nz-tab>-->
+        <!--</nz-tabset>-->
+      <!--</nz-card-tab>-->
+      <!--content{{ index1 }}-->
+    <!--</nz-card>-->
+
+  <!--</div>-->
+
+</div>
+
