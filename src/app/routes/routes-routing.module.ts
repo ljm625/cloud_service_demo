@@ -19,6 +19,7 @@ import { UserLockComponent } from './passport/lock/lock.component';
 import { Exception403Component } from './exception/403.component';
 import { Exception404Component } from './exception/404.component';
 import { Exception500Component } from './exception/500.component';
+import {ServiceDetailComponent} from "./service-detail/service-detail.component";
 
 const routes: Routes = [
   {
@@ -29,7 +30,9 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent, data: { title: '仪表盘', titleI18n: 'dashboard' } },
       // 业务子模块
       // { path: 'widgets', loadChildren: './widgets/widgets.module#WidgetsModule' }
-      { path: 'pro', loadChildren: './pro/pro.module#ProModule' }
+      { path: 'pro', loadChildren: './pro/pro.module#ProModule' },
+      { path: 'services/:id', component: ServiceDetailComponent }
+
 
     ]
   },

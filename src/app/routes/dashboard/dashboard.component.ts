@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { _HttpClient } from '@delon/theme';
 import {ApiService} from "@core/api_service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +12,7 @@ export class DashboardComponent implements OnInit {
   services = [];
 
 
-  constructor(private api:ApiService)
+  constructor(private api:ApiService, private router: Router)
   {
 
   }

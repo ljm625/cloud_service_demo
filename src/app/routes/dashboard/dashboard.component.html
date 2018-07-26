@@ -78,7 +78,7 @@
 
     </nz-card>
     <ng-template #extraTemplate>
-      &nbsp;<a>详情</a>
+      &nbsp;<a  (click)="router.navigate(['/services/'+services[i].id]);">详情</a>
     </ng-template>
   </div>
   <!--<div nz-col [nzSpan]="12">-->
