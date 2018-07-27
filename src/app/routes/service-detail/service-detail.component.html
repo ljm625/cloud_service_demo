@@ -75,3 +75,33 @@
     <div nz-col [nzXs]="6" [nzMd]="6" class="mb-md">
     </div>
   </div>
+  <div nz-row [nzGutter]="16" >
+    <div nz-col [nzSpan]="6"></div>
+    <div nz-col [nzSpan]="12">
+      <nz-card [nzBordered]="false" nzTitle="服务状态" [nzExtra]="extraTemplate">
+    <nz-timeline [nzPending]="'部署中...'">
+    <nz-timeline-item>于 <b>2018-06-23</b> 提交服务</nz-timeline-item>
+    <nz-timeline-item>于 <b>2018-06-24</b> 成功部署云端节点</nz-timeline-item>
+    <nz-timeline-item>于 <b>2018-06-24</b> 成功启动云端服务</nz-timeline-item>
+  </nz-timeline>
+    </nz-card>
+
+      <ng-template #extraTemplate>
+        <nz-badge [nzStatus]="getStatus(service.status)"></nz-badge>{{getStatusText(service.status)}}
+      </ng-template>
+
+    </div>
+    <div nz-col [nzSpan]="6"></div>
+
+  </div>
+  <div nz-row [nzGutter]="16" [nzJustify]="'start'" >
+    <div nz-col [nzSpan]="6"></div>
+
+    <div nz-col [nzSpan]="12" >
+      <button nz-button class="ml-sm" [nzType]="'danger'" (click)="submit()" [nzLoading]="loading">删除服务</button>
+    </div>
+    <div nz-col [nzSpan]="6"></div>
+
+  </div>
+
+</div>

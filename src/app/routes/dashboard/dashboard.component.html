@@ -78,6 +78,7 @@
 
     </nz-card>
     <ng-template #extraTemplate>
+      <nz-badge [nzStatus]="getStatus(services[i].status)"></nz-badge>{{getStatusText(services[i].status)}}
       &nbsp;<a  (click)="router.navigate(['/services/'+services[i].id]);">详情</a>
     </ng-template>
   </div>
