@@ -94,11 +94,17 @@
     <div nz-col [nzSpan]="6"></div>
 
   </div>
-  <div nz-row [nzGutter]="16" [nzJustify]="'start'" >
+  <div nz-row [nzType]="'flex'" [nzJustify]="'center'" [nzAlign]="'middle'" [nzGutter]="16" >
     <div nz-col [nzSpan]="6"></div>
 
     <div nz-col [nzSpan]="12" >
-      <button nz-button class="ml-sm" [nzType]="'danger'" (click)="submit()" [nzLoading]="loading">删除服务</button>
+      <div nz-row [nzType]="'flex'" [nzJustify]="'start'" [nzAlign]="'middle'" [nzGutter]="16" >
+        <div nz-col [nzOffset]="20" [nzSpan]="2" >
+
+          <button nz-button class="ml-sm" [nzType]="'danger'" (click)="submit()" [nzLoading]="loading">删除服务</button>
+        </div>
+      </div>
+
     </div>
     <div nz-col [nzSpan]="6"></div>
 
