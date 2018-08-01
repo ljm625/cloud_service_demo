@@ -108,7 +108,7 @@
       <div nz-row [nzType]="'flex'" [nzJustify]="'start'" [nzAlign]="'middle'" [nzGutter]="16" >
         <div nz-col [nzOffset]="20" [nzSpan]="2" >
 
-          <button nz-button class="ml-sm" [nzType]="'danger'" (click)="submit()" [nzLoading]="loading">删除服务</button>
+          <button nz-button class="ml-sm" [nzType]="'danger'" (click)="showDeleteConfirm()" [nzLoading]="loading">删除服务</button>
         </div>
       </div>
 

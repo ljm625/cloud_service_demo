@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { _HttpClient } from '@delon/theme';
 import {ApiService} from "@core/api_service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import {NzModalService} from "ng-zorro-antd";
 
 @Component({
   selector: 'service-detail',
@@ -12,7 +13,7 @@ export class ServiceDetailComponent implements OnInit {
   service = {};
 
 
-  constructor(private api:ApiService, private route: ActivatedRoute)
+  constructor(private api:ApiService, private route: ActivatedRoute, private modalService: NzModalService, private router: Router)
   {
 
   }
@@ -76,6 +77,28 @@ export class ServiceDetailComponent implements OnInit {
     }
 
   }
+
+
+
+  showDeleteConfirm(): void {
+    this.modalService.confirm({
+      nzTitle     : '您确定要删除这个服务么?',
+      nzContent   : '<b style="color: red;">服务名称： '+this.service.service_name+'</b>',
+      nzOkText    : '确定',
+      nzOkType    : 'danger',
+      nzOnOk      : this.deleteService(),
+      nzCancelText: '取消',
+      nzOnCancel  : () => console.log('Cancel')
+    });
+  }
+
+  deleteService(): void {
+    this.api.delete_service(this.route.snapshot.params.id).subscribe(resp => {
+      console.log("Service Deleted!");
+      this.router.navigate(['/dashboard']);
+    })
+  }
+
 
 
 

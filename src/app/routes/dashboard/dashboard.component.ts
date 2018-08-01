@@ -23,15 +23,65 @@ export class DashboardComponent implements OnInit {
 
 
   ngOnInit() {
+    this.updateServiceList();
+    setInterval(()=>{
+      this.updateServiceList();
+    },5000);
+    // this.api.get_services().subscribe(resp => {
+    //   this.services = resp;
+    //   console.log(resp);
+    //   for(let service of this.services){
+    //     this.indexs.push(0);
+    //   }
+    // })
 
+  }
+
+  updateServiceList(){
     this.api.get_services().subscribe(resp => {
-      this.services = resp;
-      console.log(resp);
-      for(let service of this.services){
-        this.indexs.push(0);
+      // Do not hard modify on this list.
+      if(this.services.length != resp.length){
+        console.log("length mismatch");
+        if(this.services.length<resp.length){
+          // This is a add action.
+          console.log("new element added");
+
+          let id_list=[];
+          for(let i =0;i<this.services;i++){
+            id_list.push(this.services[i].id);
+          }
+          for(let i=0;i<resp.length;i++){
+            if(!id_list.includes(resp[i].id)){
+              console.log("add : "+resp[i].id);
+
+              this.services.push(resp[i]);
+            }
+          }
+        }
+        if(this.services.length> resp.length){
+          console.log("old element deleted");
+
+          let id_list=[];
+          for(let i =0;i<resp.length;i++){
+            id_list.push(resp[i].id);
+          }
+          console.log(id_list);
+
+          for(let i =this.services.length-1;i>=0;i--){
+            if(!id_list.includes(this.services[i].id)){
+              console.log("delete : "+this.services[i].id);
+              this.services.splice(i,1);
+            }
+          }
+        }
+      }
+      if (this.indexs.length != this.services.length){
+        this.indexs=[];
+        for(let service of this.services){
+          this.indexs.push(0);
+        }
       }
     })
-
   }
 
 
