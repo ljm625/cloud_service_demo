@@ -10,7 +10,7 @@ import {NzModalService} from "ng-zorro-antd";
 })
 export class ServiceDetailComponent implements OnInit {
 
-  service = {};
+  service = <any>{};
 
 
   constructor(private api:ApiService, private route: ActivatedRoute, private modalService: NzModalService, private router: Router)
@@ -86,7 +86,7 @@ export class ServiceDetailComponent implements OnInit {
       nzContent   : '<b style="color: red;">服务名称： '+this.service.service_name+'</b>',
       nzOkText    : '确定',
       nzOkType    : 'danger',
-      nzOnOk      : this.deleteService(),
+      nzOnOk      : () => this.deleteService(),
       nzCancelText: '取消',
       nzOnCancel  : () => console.log('Cancel')
     });
@@ -95,7 +95,7 @@ export class ServiceDetailComponent implements OnInit {
   deleteService(): void {
     this.api.delete_service(this.route.snapshot.params.id).subscribe(resp => {
       console.log("Service Deleted!");
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/services']);
     })
   }
 

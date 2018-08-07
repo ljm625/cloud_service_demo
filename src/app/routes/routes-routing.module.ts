@@ -5,8 +5,8 @@ import { environment } from '@env/environment';
 import { LayoutDefaultComponent } from '../layout/default/default.component';
 import { LayoutFullScreenComponent } from '../layout/fullscreen/fullscreen.component';
 import { LayoutPassportComponent } from '../layout/passport/passport.component';
-// dashboard pages
-import { DashboardComponent } from './dashboard/dashboard.component';
+// servicelist pages
+import { ServicelistComponent } from './servicelist/servicelist.component';
 // passport pages
 import { UserLoginComponent } from './passport/login/login.component';
 import { UserRegisterComponent } from './passport/register/register.component';
@@ -27,7 +27,7 @@ const routes: Routes = [
     component: LayoutDefaultComponent,
     children: [
       { path: '', redirectTo: '/passport/login', pathMatch: 'full' },
-      { path: 'dashboard', component: DashboardComponent, data: { title: '仪表盘', titleI18n: 'dashboard' } },
+      { path: 'services', component: ServicelistComponent, data: { title: '仪表盘', titleI18n: 'servicelist' } },
       // 业务子模块
       // { path: 'widgets', loadChildren: './widgets/widgets.module#WidgetsModule' }
       { path: 'pro', loadChildren: './pro/pro.module#ProModule' },
@@ -59,7 +59,7 @@ const routes: Routes = [
   { path: '403', component: Exception403Component },
   { path: '404', component: Exception404Component },
   { path: '500', component: Exception500Component },
-  { path: '**', redirectTo: 'dashboard' }
+  { path: '**', redirectTo: 'servicelist' }
 ];
 
 @NgModule({

@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 
 import { SharedModule } from '@shared/shared.module';
 import { RouteRoutingModule } from './routes-routing.module';
-// dashboard pages
-import { DashboardComponent } from './dashboard/dashboard.component';
+// servicelist pages
+import { ServicelistComponent } from './servicelist/servicelist.component';
 // passport pages
 import { UserLoginComponent } from './passport/login/login.component';
 import { UserRegisterComponent } from './passport/register/register.component';
@@ -20,7 +20,7 @@ import {ServiceDetailComponent} from "./service-detail/service-detail.component"
 
 
 const COMPONENTS = [
-  DashboardComponent,
+  ServicelistComponent,
   // passport pages
   UserLoginComponent,
   UserRegisterComponent,
