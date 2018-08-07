@@ -2,7 +2,7 @@
   <!--<nz-form-item>-->
 
 <nz-collapse nzAccordion [nzBordered]="false">
-  <nz-collapse-panel *ngFor="let validateForm of validateForms;let i = index" [nzHeader]="'站点'+(i+1)" [nzActive]="actived[i]">
+  <nz-collapse-panel *ngFor="let validateForm of validateForms;let i = index" [nzHeader]="'站点'+(i+1)" [(nzActive)]="actived[i]">
     <form nz-form [formGroup]="validateForm">
       <nz-form-item>
         <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="name">站点名称</nz-form-label>

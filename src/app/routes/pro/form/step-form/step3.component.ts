@@ -41,7 +41,12 @@ export class Step3Component implements OnInit{
       bandwidth         : [ null, [ Validators.required, Validators.min(1),Validators.max(10000), Validators.pattern("[0-9]+") ] ],
       slaName      : [ null, [ Validators.required ] ],
     }));
-    this.actived.push(false);
+    for(let i = 0;i<this.actived.length;i++){
+      if(this.actived[i] == true) {
+        this.actived[i]=false;
+      }
+    }
+    this.actived.push(true);
   }
 
 
@@ -65,6 +70,15 @@ export class Step3Component implements OnInit{
     this.actived = [
       ...this.actived.slice(0, num),
       ...this.actived.slice(num + 1)];
+    if(this.actived.length>0){
+      // Just display the previous one as activated
+      if(num>0){
+        this.actived[num-1]=true;
+      }
+      else{
+        this.actived[0]=true;
+      }
+    }
   }
 
   // confirmationValidator = (control: FormControl): { [s: string]: boolean } => {

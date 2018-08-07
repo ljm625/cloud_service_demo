@@ -2,7 +2,7 @@
   <nz-col [nzXs]="2" [nzMd]="4" nzLg="6" nzXl="6">
   </nz-col>
   <nz-col [nzXs]="10" [nzMd]="8" nzLg="6" nzXl="6">
-    <nz-card [@flip]="mouse" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()">
+    <nz-card [@flip]="mouse" (mouseenter)="mouseEnter(1)" (mouseleave)="mouseLeave(1)">
       <a (click)="router.navigate(['/pro/form/step-form']);" class="d-block text-center text-primary">
         <i class="anticon anticon-rocket mb-md" style="font-size: 72px"></i>
         <h2 class="mb0">业务订购</h2>
@@ -10,7 +10,7 @@
     </nz-card>
   </nz-col>
   <nz-col [nzXs]="10" [nzMd]="8" nzLg="6" nzXl="6">
-    <nz-card>
+    <nz-card [@flip2]="mouse2" (mouseenter)="mouseEnter(2)" (mouseleave)="mouseLeave(2)">
       <a (click)="router.navigate(['/dashboard']);" class="d-block text-center text-red">
         <i class="anticon anticon-hdd mb-md" style="font-size: 72px"></i>
         <h2 class="mb0">已订购业务查询</h2>
@@ -22,11 +22,3 @@
 
 </nz-row>
 
-
-<result *ngIf="false" type="success" [title]="title" description="激活邮件已发送到你的邮箱中，邮件有效期为24小时。请及时登录邮箱，点击邮件中的链接激活帐户。">
-  <ng-template #title>
-    <div class="title">你的账户：ng-alain@example.com 注册成功</div>
-  </ng-template>
-  <button (click)="msg.success('email')" nz-button nzSize="large" [nzType]="'primary'">查看邮箱</button>
-  <button routerLink="/" nz-button nzSize="large">返回首页</button>
-</result>
