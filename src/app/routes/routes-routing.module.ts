@@ -27,7 +27,7 @@ const routes: Routes = [
     component: LayoutDefaultComponent,
     children: [
       { path: '', redirectTo: '/user/login', pathMatch: 'full' },
-      { path: 'services', component: ServicelistComponent, data: { title: '仪表盘', titleI18n: 'servicelist' } },
+      { path: 'services', component: ServicelistComponent, data: { title: '服务列表', titleI18n: 'servicelist' } },
       // 业务子模块
       // { path: 'widgets', loadChildren: './widgets/widgets.module#WidgetsModule' }
       { path: 'pro', loadChildren: './pro/pro.module#ProModule' },
