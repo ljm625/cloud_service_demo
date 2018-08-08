@@ -9,7 +9,7 @@ import { UserLoginComponent } from './passport/login/login.component';
 import { UserRegisterComponent } from './passport/register/register.component';
 import {
   UserServiceSelectComponent
-} from './passport/register-result/service-select.component';
+} from './passport/service-select/service-select.component';
 // single pages
 import { CallbackComponent } from './callback/callback.component';
 import { UserLockComponent } from './passport/lock/lock.component';

@@ -12,7 +12,7 @@ import { UserLoginComponent } from './passport/login/login.component';
 import { UserRegisterComponent } from './passport/register/register.component';
 import {
   UserServiceSelectComponent
-} from './passport/register-result/service-select.component';
+} from './passport/service-select/service-select.component';
 // single pages
 import { CallbackComponent } from './callback/callback.component';
 import { UserLockComponent } from './passport/lock/lock.component';
@@ -26,12 +26,12 @@ const routes: Routes = [
     path: '',
     component: LayoutDefaultComponent,
     children: [
-      { path: '', redirectTo: '/passport/login', pathMatch: 'full' },
+      { path: '', redirectTo: '/user/login', pathMatch: 'full' },
       { path: 'services', component: ServicelistComponent, data: { title: '仪表盘', titleI18n: 'servicelist' } },
       // 业务子模块
       // { path: 'widgets', loadChildren: './widgets/widgets.module#WidgetsModule' }
       { path: 'pro', loadChildren: './pro/pro.module#ProModule' },
-      { path: 'services/:id', component: ServiceDetailComponent }
+      { path: 'services/:id', component: ServiceDetailComponent },
 
 
     ]
@@ -45,12 +45,13 @@ const routes: Routes = [
   // },
   // passport
   {
-    path: 'passport',
+    path: 'user',
     component: LayoutPassportComponent,
     children: [
       { path: 'login', component: UserLoginComponent, data: { title: '登录', titleI18n: 'pro-login' } },
       { path: 'register', component: UserRegisterComponent, data: { title: '注册', titleI18n: 'pro-register' } },
-      { path: 'service-select', component: UserServiceSelectComponent, data: { title: '服务选择', titleI18n: 'pro-service-select' } }
+      { path: 'navigate', component: UserServiceSelectComponent, data: { title: '服务选择', titleI18n: 'pro-service-select' } }
+
     ]
   },
   // 单页不包裹Layout

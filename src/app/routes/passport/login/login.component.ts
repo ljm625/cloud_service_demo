@@ -126,7 +126,7 @@ export class UserLoginComponent implements OnDestroy {
       // 重新获取 StartupService 内容，若其包括 User 有关的信息的话
       // this.startupSrv.load().then(() => this.router.navigate(['/']));
       // 否则直接跳转
-      this.router.navigate(['/passport/service-select']);
+      this.router.navigate(['/user/navigate']);
     }, 1000);
   }
 

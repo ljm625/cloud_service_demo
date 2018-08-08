@@ -123,7 +123,7 @@ export class UserRegisterComponent implements OnDestroy {
     this.loading = true;
     setTimeout(() => {
       this.loading = false;
-      this.router.navigate(['/passport/register-result']);
+      this.router.navigate(['/passport/service-select']);
     }, 1000);
   }
 

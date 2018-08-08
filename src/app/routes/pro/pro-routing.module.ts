@@ -9,12 +9,14 @@ import { ProResultFailComponent } from './result/fail/fail.component';
 
 const routes: Routes = [
   {
-    path: 'form',
-    children: [
-      // { path: 'basic-form', component: BasicFormComponent },
-      { path: 'step-form', component: StepFormComponent },
-      // { path: 'advanced-form', component: AdvancedFormComponent },
-    ],
+    path: 'deploy',
+    component: StepFormComponent,
+    // path: 'navigate',
+    // children: [
+    //   // { path: 'basic-form', component: BasicFormComponent },
+    //   { path: 'step-form', component: StepFormComponent },
+    //   // { path: 'advanced-form', component: AdvancedFormComponent },
+    // ],
   },
   // {
   //   path: 'list',
