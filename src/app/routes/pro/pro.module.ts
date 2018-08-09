@@ -13,11 +13,12 @@ import { ProProfileAdvancedComponent } from './profile/advanced/advanced.compone
 import { ProResultSuccessComponent } from './result/success/success.component';
 import { ProResultFailComponent } from './result/fail/fail.component';
 import {Step4Component} from "./form/step-form/step4.component";
+import {LayoutModule} from "../../layout/layout.module";
 
 const COMPONENTS_NOROUNT = [Step1Component, Step2Component, Step3Component, Step4Component];
 
 @NgModule({
-  imports: [SharedModule, ProRoutingModule],
+  imports: [SharedModule, ProRoutingModule,LayoutModule],
   declarations: [
     StepFormComponent,
     ProProfileBaseComponent,

@@ -17,6 +17,7 @@ import { Exception403Component } from './exception/403.component';
 import { Exception404Component } from './exception/404.component';
 import { Exception500Component } from './exception/500.component';
 import {ServiceDetailComponent} from "./service-detail/service-detail.component";
+import {LayoutModule} from "../layout/layout.module";
 
 
 const COMPONENTS = [
@@ -36,7 +37,7 @@ const COMPONENTS = [
 const COMPONENTS_NOROUNT = [];
 
 @NgModule({
-  imports: [ SharedModule, RouteRoutingModule ],
+  imports: [ SharedModule, RouteRoutingModule,LayoutModule ],
   declarations: [
     ...COMPONENTS,
     ...COMPONENTS_NOROUNT

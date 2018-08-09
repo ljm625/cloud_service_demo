@@ -18,7 +18,8 @@ const COMPONENTS = [
   LayoutFullScreenComponent,
   HeaderComponent,
   SidebarComponent,
-  LayoutNavComponent
+  LayoutNavComponent,
+  LayoutWavesComponent
 ];
 
 const HEADERCOMPONENTS = [
@@ -34,6 +35,7 @@ const HEADERCOMPONENTS = [
 // passport
 import { LayoutPassportComponent } from './passport/passport.component';
 import {LayoutNavComponent} from "./nav/nav.component";
+import {LayoutWavesComponent} from "./waves/waves.component";
 const PASSPORT = [
   LayoutPassportComponent
 ];

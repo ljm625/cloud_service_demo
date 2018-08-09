@@ -20,6 +20,7 @@ import { Exception403Component } from './exception/403.component';
 import { Exception404Component } from './exception/404.component';
 import { Exception500Component } from './exception/500.component';
 import {ServiceDetailComponent} from "./service-detail/service-detail.component";
+import {LayoutWavesComponent} from "../layout/waves/waves.component";
 
 const routes: Routes = [
   {
@@ -32,6 +33,7 @@ const routes: Routes = [
       // { path: 'widgets', loadChildren: './widgets/widgets.module#WidgetsModule' }
       { path: 'pro', loadChildren: './pro/pro.module#ProModule' },
       { path: 'services/:id', component: ServiceDetailComponent },
+      { path: 'waves', component: LayoutWavesComponent },
 
 
     ]

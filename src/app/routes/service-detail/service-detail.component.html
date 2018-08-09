@@ -1,6 +1,5 @@
-<div class="content__title">
-  <h1>服务详情页</h1>
-</div>
+<page-header [title]="'服务详情页'">
+</page-header>
 
 <div class="extra mt-md" >
   <div nz-row class="mb-md">
@@ -78,7 +77,7 @@
   <div nz-row [nzGutter]="16" >
     <div nz-col [nzSpan]="6"></div>
     <div nz-col [nzSpan]="12">
-      <nz-card [nzBordered]="false" nzTitle="服务状态" [nzExtra]="extraTemplate">
+      <nz-card [nzBordered]="true" nzTitle="服务状态" [nzExtra]="extraTemplate">
         <nz-timeline [nzPending]="'部署中...'" *ngIf="service.status!='complete' && service.status!='failed'">
           <nz-timeline-item *ngFor="let log of service.logs">于 <b>{{log.time}}</b> {{log.log}}</nz-timeline-item>
           <!--<nz-timeline-item>于 <b>2018-06-24</b> 成功部署云端节点</nz-timeline-item>-->

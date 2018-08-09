@@ -5,7 +5,7 @@
 <p class="pt-md text-grey">订购信息确认</p>
 
 </div>
-<div class="extra mt-md" *ngIf="!submitted">
+<div class="mt-md" *ngIf="!submitted">
   <div nz-row class="mb-md" [@hide]="hideList[0]" [hidden]="hideElementList[0]"  (@hide.done)="animateDone($event,0)">
     <div nz-col [nzSm]="8" class="text-right">服务类型：</div>
     <div nz-col [nzSm]="16"><b>云网融合 Cloudbone</b></div>
@@ -37,6 +37,7 @@
     </div>
     <div nz-col [nzXs]="12" [nzMd]="12" class="mb-md">
       <div nz-row [nzType]="'flex'" [nzJustify]="'center'" [nzAlign]="'middle'" class="bg-white py-md rounded-md">
+        <!--<nz-card>-->
         <div nz-col [nzSpan]="3" class="text-center" style="padding-right:5px">
         <span class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon bg-primary">
           <i class="anticon anticon-database"></i>
@@ -62,6 +63,7 @@
           {{data.slaName}}
           <!--<span class="display-3 text-grey-dark">2</span>-->
         </div>
+        <!--</nz-card>-->
       </div>
     </div>
     <div nz-col [nzXs]="6" [nzMd]="6" class="mb-md">
@@ -78,7 +80,7 @@
       <!--<strong class="text-lg pr-sm">4</strong>元</div>-->
   <!--</div>-->
 </div>
-<div nz-row class="my-md py-md" *ngIf="!submitted">
+<div nz-row class="my-md py-md" *ngIf="!loading">
 
 
   <div nz-col [nzSpan]="19" [nzOffset]="16">
@@ -89,3 +91,4 @@
 
 
 <pro-result-success [project_id]="service_id" *ngIf="submitted"></pro-result-success>
+<!--<waves-ui *ngIf="loading && !submitted"></waves-ui>-->
