@@ -1,8 +1,12 @@
 
 
 <div style="text-align: center" *ngIf="!submitted">
-<h1 class="h2 pt-md">订单确认</h1>
-<p class="pt-md text-grey">订购信息确认</p>
+<h1 class="h2 pt-md" [@fade]="display_status" [hidden]="loading || submitted">订单确认</h1>
+  <h1 class="h2 pt-md" [@fade]="wave_status" [hidden]="!loading">服务提交中</h1>
+  <h1 class="h2 pt-md" [@fade]="submit_status" [hidden]="!submitted">服务提交成功</h1>
+
+
+  <p class="pt-md text-grey" [@fade]="display_status" [hidden]="loading || submitted">订购信息确认</p>
 
 </div>
 <div class="mt-md" *ngIf="!submitted">
@@ -91,4 +95,4 @@
 
 
 <pro-result-success [project_id]="service_id" *ngIf="submitted"></pro-result-success>
-<!--<waves-ui *ngIf="loading && !submitted"></waves-ui>-->
+<waves-ui [@fade]="wave_status" [hidden]="!wave_display" (@fade.done)="animateDone($event,100)"></waves-ui>
