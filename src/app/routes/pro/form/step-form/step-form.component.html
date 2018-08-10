@@ -11,8 +11,8 @@
   </nz-steps>
   <app-step1 *ngIf="item.step==0"></app-step1>
   <app-step2 *ngIf="item.step==1"></app-step2>
-  <app-step3 [hidden]="item.step!=2" (dataEmit)="getSiteData($event)"></app-step3>
-  <app-step4 *ngIf="item.step==3" [datas]="site_datas"></app-step4>
+  <app-step3 [hidden]="item.step!=2" (dataEmit)="getSiteData($event)" (nameEmit)="getServiceName($event)"></app-step3>
+  <app-step4 *ngIf="item.step==3" [datas]="site_datas" [name]="service_name"></app-step4>
 
 </nz-card>
 </div>

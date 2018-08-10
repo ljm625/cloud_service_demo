@@ -11,14 +11,19 @@
 </div>
 <div class="mt-md" *ngIf="!submitted">
   <div nz-row class="mb-md" [@hide]="hideList[0]" [hidden]="hideElementList[0]"  (@hide.done)="animateDone($event,0)">
+    <div nz-col [nzSm]="8" class="text-right">服务名称：</div>
+    <div nz-col [nzSm]="16"><b>{{name}}</b></div>
+  </div>
+
+  <div nz-row class="mb-md" [@hide]="hideList[0]" [hidden]="hideElementList[1]"  (@hide.done)="animateDone($event,1)">
     <div nz-col [nzSm]="8" class="text-right">服务类型：</div>
     <div nz-col [nzSm]="16"><b>云网融合 Cloudbone</b></div>
   </div>
-  <div nz-row class="mb-md" [@hide]="hideList[1]" [hidden]="hideElementList[1]"  (@hide.done)="animateDone($event,1)">
+  <div nz-row class="mb-md" [@hide]="hideList[1]" [hidden]="hideElementList[2]"  (@hide.done)="animateDone($event,2)">
     <div nz-col [nzSm]="8" class="text-right">云端选择：</div>
     <div nz-col [nzSm]="16"><b>阿里云</b></div>
   </div>
-  <div nz-row class="mb-md" [@hide]="hideList[2]" [hidden]="hideElementList[2]"  (@hide.done)="animateDone($event,2)">
+  <div nz-row class="mb-md" [@hide]="hideList[2]" [hidden]="hideElementList[3]"  (@hide.done)="animateDone($event,3)">
     <div nz-col [nzSm]="8" class="text-right">站点信息：</div>
     <div nz-col [nzSm]="16"></div>
   </div>
@@ -36,7 +41,7 @@
 
   <!--</div>-->
 
-  <div nz-row [nzGutter]="16" *ngFor="let data of datas; let i = index" [@hide]="hideList[i+3]" (@hide.done)="animateDone($event,i+3)" [hidden]="hideElementList[i+3]">
+  <div nz-row [nzGutter]="16" *ngFor="let data of datas; let i = index" [@hide]="hideList[i+4]" (@hide.done)="animateDone($event,i+4)" [hidden]="hideElementList[i+4]">
     <div nz-col [nzXs]="6" [nzMd]="6" class="mb-md">
     </div>
     <div nz-col [nzXs]="12" [nzMd]="12" class="mb-md">

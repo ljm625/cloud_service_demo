@@ -1,5 +1,14 @@
 <!--<form nz-form [formGroup]="form">-->
   <!--<nz-form-item>-->
+<form nz-form [formGroup]="serviceForm">
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="name">服务名称</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24">
+      <input nz-input formControlName="name" id="name" placeholder="请输入服务名称">
+      <!--<nz-form-explain *ngIf="validateForm.get('name').dirty && validateForm.get('name').errors &&validateForm.get('name').value=='' ">站点名为必填值</nz-form-explain>-->
+    </nz-form-control>
+  </nz-form-item>
+</form>
 
 <nz-collapse nzAccordion [nzBordered]="false">
   <nz-collapse-panel *ngFor="let validateForm of validateForms;let i = index" [nzHeader]="'站点'+(i+1)" [(nzActive)]="actived[i]">

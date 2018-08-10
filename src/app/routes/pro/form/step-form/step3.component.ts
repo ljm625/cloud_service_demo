@@ -14,10 +14,13 @@ export class Step3Component implements OnInit{
   dataSet = [];
   totalNAS;
   @Output() dataEmit = new EventEmitter();
+  @Output() nameEmit = new EventEmitter();
+
   loading = false;
   actived = [true];
   data = [];
-
+  serviceForm = null;
+  serviceName = "";
   validateForms: Array<any> =[];
 
 
@@ -29,6 +32,10 @@ export class Step3Component implements OnInit{
       bandwidth         : [ null, [ Validators.required, Validators.min(1),Validators.max(10000), Validators.pattern("[0-9]+") ] ],
       slaName      : [ null, [ Validators.required ] ],
     }));
+
+    this.serviceForm =this.fb.group({
+      name            : [ null, [ Validators.required ] ],
+    })
 
   }
 
@@ -91,6 +98,10 @@ export class Step3Component implements OnInit{
 
 
   isValid(): boolean{
+    if(this.serviceForm.status ==="INVALID"){
+      return false;
+    }
+
     for(let form of this.validateForms){
       if(form.status ==='INVALID'){
         return false;
@@ -107,8 +118,10 @@ export class Step3Component implements OnInit{
       for(let form of this.validateForms){
         this.data.push(form.value);
       }
+      this.serviceName = this.serviceForm.value.name
     }
     this.dataEmit.emit(this.data);
+    this.nameEmit.emit(this.serviceName);
     console.log(this.data);
     ++this.item.step;
   }

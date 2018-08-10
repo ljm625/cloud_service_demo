@@ -25,6 +25,8 @@ import {ApiService} from "@core/api_service";
 export class Step4Component implements OnInit{
 
   @Input() datas=[];
+  @Input() name="";
+
   str ="wdawdasdasdsadsadsadsadsadasdasdasdas";
   constructor(public item: TransferService, private api:ApiService) {}
   loading = false;
@@ -64,6 +66,7 @@ export class Step4Component implements OnInit{
     // setTimeout(() => {
     // }, 3000);
     this.service_detail.sites=this.datas;
+    this.service_detail.service_name=this.name;
 
     this.api.create_service(this.service_detail).subscribe(resp => {
       console.log("------------------------------------");
@@ -78,7 +81,7 @@ export class Step4Component implements OnInit{
   }
 
   ngOnInit(){
-    for(let i =0;i<this.datas.length+3;i++){
+    for(let i =0;i<this.datas.length+4;i++){
       this.hideList.push("no");
       this.hideElementList.push(false);
     }

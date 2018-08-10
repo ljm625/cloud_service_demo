@@ -10,7 +10,7 @@ import { TransferService } from './transfer.service';
 export class StepFormComponent implements AfterViewInit {
   constructor(public item: TransferService) {}
   site_datas=[];
-
+  service_name="";
   ngAfterViewInit() {
     console.log('item', this.item);
     // this.item.step=3;
@@ -20,5 +20,10 @@ export class StepFormComponent implements AfterViewInit {
   getSiteData(data){
     console.log(data);
     this.site_datas=data;
+  }
+
+  getServiceName(data){
+    console.log(data);
+    this.service_name=data;
   }
 }
